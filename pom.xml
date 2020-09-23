@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mkr</groupId>
+  <artifactId>venkat</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  
+  <name>venkat</name>
+  <url>http://maven.apache.org</url>
+  
+ <modules>
+   <module>mod1</module>
+   <module>mod2</module>
+ </modules> 
+ 
+  <build>
+    <plugins>
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.9.1</version>
+        <configuration>
+          <port>9000</port>
+          <tempWebappDirectory>C:\mvk\MAVEN\venkat\target\site</tempWebappDirectory>
+        </configuration>
+      </plugin>
+	  <plugin>
+          <groupId>org.wildfly.plugins</groupId>
+          <artifactId>wildfly-maven-plugin</artifactId>
+          <version>2.1.0.Beta1</version>
+             <configuration>
+                <jbossHome>C:\Users\hp\EAP-7.3.0\</jbossHome>
+		        <servername>default</servername>
+		        <artifactId>mod3</artifactId>
+                <version>1.0-SNAPSHOT</version>        
+		     </configuration>
+       </plugin>
+	</plugins>
+  </build>
+  
+ <properties>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   <maven.compiler.source>1.7</maven.compiler.source>
+   <maven.compiler.target>1.7</maven.compiler.target>
+ </properties> 
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+		<dependency>
+      <groupId>org.wildfly.plugins</groupId>
+      <artifactId>wildfly-maven-plugin</artifactId>
+      <version>2.1.0.Beta1</version>
+      <type>maven-plugin</type>
+    </dependency>
+	<dependency>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.9.1</version>
+   	</dependency>
+  </dependencies>
+</project>
